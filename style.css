@@ -1,0 +1,58 @@
+.header {
+  min-height: 50vh;
+  background-color: #00cba9;
+}
+
+header > nav {
+  height: 10vh;
+}
+.hero {
+  height: 40vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hero-text {
+  line-height: 1.05rem;
+  text-align: justify;
+  letter-spacing: 5px;
+}
+
+.hero-text::first-letter {
+  font-size: 1.5rem;
+  color: #112522;
+  font-weight: 500;
+}
+
+.form-section {
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-item {
+  color: #fff;
+  height: 80%;
+  width: 80%;
+}
+.pagination .page-link {
+  background: #212529;
+  color: white;
+}
+
+/* @media only screen and (max-width: 768px) {
+  #hero-img {
+    position: absolute;
+    top: 5vh;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  #hero-img {
+    top: 1rem;
+  }
+} */
