@@ -27,12 +27,13 @@ function tableFilter() {
       elem.program.toLowerCase().includes(program.toLowerCase())
     );
   }
-
   if (tbodyContent.length == 0) {
     document.getElementById("tableBody").innerHTML = "";
     return;
   }
-
+  tbodyContent.sort(function (a, b) {
+    return a.closingRank - b.closingRank;
+  });
   sessionStorage.setItem("mathongo_rank_list", JSON.stringify(tbodyContent));
   let keys = Object.keys(tbodyContent[0]);
   keys = keys.filter((key) => key != "year");
@@ -106,6 +107,9 @@ function filterList() {
     document.getElementById("tableBody").innerHTML = "";
     return;
   }
+  tbodyContent.sort(function (a, b) {
+    return a.closingRank - b.closingRank;
+  });
   sessionStorage.setItem("mathongo_rank_list", JSON.stringify(tbodyContent));
   localStorage.setItem("mathongo_rw", JSON.stringify(tbodyContent));
   let keys = Object.keys(tbodyContent[0]);
@@ -316,7 +320,9 @@ fetch("./data.json")
     ${institutes.join("")}`;
 
     // console.log(theadTag);
-
+    data.sort(function (a, b) {
+      return a.closingRank - b.closingRank;
+    });
     let tbodyContent = data.map((d, idx) => {
       let trContent = keys.map((key) => {
         if (key == "RankType") {
