@@ -6,7 +6,7 @@ function tableFilter() {
   let type = document.getElementById("type-Filter").value;
   let program = document.getElementById("program-Filter").value;
 
-  console.group(quota, seat, courseDuration, type, program);
+  // console.group(quota, seat, courseDuration, type, program);
 
   if (quota != "All") {
     tbodyContent = tbodyContent.filter((elem) => elem.quota == quota);
@@ -102,7 +102,10 @@ function filterList() {
   if (category != "Choose...") {
     tbodyContent = tbodyContent.filter((elem) => elem.category == category);
   }
-
+  if (tbodyContent.length == 0) {
+    document.getElementById("tableBody").innerHTML = "";
+    return;
+  }
   sessionStorage.setItem("mathongo_rank_list", JSON.stringify(tbodyContent));
   localStorage.setItem("mathongo_rw", JSON.stringify(tbodyContent));
   let keys = Object.keys(tbodyContent[0]);
